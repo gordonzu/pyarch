@@ -3,7 +3,6 @@ from typing import Optional
 from datetime import date
 
 @dataclass(frozen=True)
-
 class OrderLine:
     orderid: str
     sku: str
@@ -20,6 +19,28 @@ class Batch:
 
     def allocate(self, line: OrderLine):
         self.available_quantity -= line.qty
+
+    def can_allocate(self, line: OrderLine):
+        return self.sku == line.sku and self.available_quantity >= line.qty
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
